@@ -19,7 +19,7 @@ namespace RoyalAkali
     {
         //////////////////////////////
         static readonly Obj_AI_Hero player = ObjectManager.Player;
-        static readonly string localVersion = "1.09";
+        static readonly string localVersion = "1.10";
 
         static Menu menu = new Menu("Royal Rapist Akali", "Akali", true);
         static Orbwalking.Orbwalker orbwalker;
@@ -60,7 +60,8 @@ namespace RoyalAkali
             }
             catch (Exception ex)
             {
-                Game.PrintChat("Mistake occurred when loading menu");
+                Game.PrintChat("TS fucked up L#, loading without TS");
+                LoadMenu(false);
             }
 
             UpdateChecks();
@@ -446,13 +447,14 @@ namespace RoyalAkali
             return false;
         }
 
-        static void LoadMenu()
+        static void LoadMenu(bool mode = true)
         {
-            /*
-            Menu targetSelector = new Menu("Target Selector", "ts");
-            SimpleTs.AddToMenu(targetSelector);
-            menu.AddSubMenu(targetSelector);
-            */
+            if (mode)
+            {
+                Menu targetSelector = new Menu("Target Selector", "ts");
+                SimpleTs.AddToMenu(targetSelector);
+                menu.AddSubMenu(targetSelector);
+            }
 
             Menu SOW = new Menu("Orbwalker", "orbwalker");
             orbwalker = new Orbwalking.Orbwalker(SOW);
