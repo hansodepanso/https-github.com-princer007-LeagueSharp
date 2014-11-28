@@ -34,13 +34,14 @@ namespace RoyalInfoLeaker
         {
             foreach (Bitch b in bitchez)
             {
+                //Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 25, Color.GreenYellow, b.average.ToString());
                 if (b.total > 20 && b.total < 50)
                 {
-                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 15, Color.GreenYellow, "Possibly cheater");
-                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 3, Color.GreenYellow, "Suspicious moves: " + b.total);
+                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 20, Color.GreenYellow, "Possibly cheater");
+                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 10, Color.GreenYellow, "Suspicious moves: " + b.total);
                 }
                 else if (b.total >= 50)
-                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 3, Color.IndianRed, "Cheater");
+                    Drawing.DrawText(b.bitch.HPBarPosition.X + 10, b.bitch.HPBarPosition.Y - 10, Color.IndianRed, "Cheater");
 
             }
         }
@@ -62,7 +63,7 @@ namespace RoyalInfoLeaker
                         else
                         {
                             b.second = (int)Game.Time;
-                            if (b.average >= 10) b.total++;
+                            if (b.average >= 9) b.total++;
                             b.average = 0;
                         }
                     }
